@@ -1,0 +1,8 @@
+numpy>=1.26
+pandas>=2.1
+PyYAML>=6.0
+opencv-python>=4.9
+mediapipe>=0.10
+
+# OpenSim Python bindings are platform/environment-specific.
+# Optional RAG dependencies are in pyproject.toml under [rag].

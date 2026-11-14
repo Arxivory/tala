@@ -1,0 +1,38 @@
+# Starter configuration for the Phase 3.10 refactor.
+# Values reflect the current script where applicable.
+experiment:
+  name: phase3_10_full_body_inverse_kinematics
+  stage: phase3_10
+
+model:
+  path: models/opensim/RajagopalLaiUhlrich2023.osim
+
+input:
+  directory: results/pose_estimation
+  landmarks_file: pose_landmarks.csv
+  metadata_file: video_metadata.json
+
+output:
+  directory: results/kinematic_reconstruction
+  scaled_model_file: scaled_model.osim
+  marker_targets_file: pose_targets.trc
+  motion_file: opensim_motion.mot
+  coordinates_file: mapped_coordinates.csv
+  marker_fitting_errors_file: marker_fitting_errors.csv
+  report_file: ik_report.json
+
+preprocessing:
+  visibility_threshold: 0.50
+  max_interpolation_gap_frames: 10
+
+scaling:
+  pelvis_ty_default_m: 0.94
+  minimum_pose_scale: 0.5
+  maximum_pose_scale: 3.0
+  minimum_body_scale_factor: 0.4
+  maximum_body_scale_factor: 2.0
+
+inverse_kinematics:
+  unobserved_elbow_flexion_degrees: 15.0
+  neutral_coordinate_task_weight: 10.0
+  minimum_usable_markers: 6

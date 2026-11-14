@@ -1,0 +1,25 @@
+# Planned RAG component. Select/evaluate the local generation model later.
+rag:
+  enabled: false
+  provider: ollama
+  embeddings:
+    provider: ollama
+    model: qwen3-embedding:0.6b
+  vector_store:
+    provider: chroma
+    persist_directory: data/knowledge_base/index
+  retrieval:
+    top_k: 5
+    score_threshold: null
+  generation:
+    model: null
+    temperature: 0.0
+  sources:
+    directory: data/knowledge_base/sources
+    manifest: data/knowledge_base/manifest.csv
+  safeguards:
+    require_retrieved_evidence: true
+    include_source_metadata: true
+    abstain_when_evidence_insufficient: true
+    prohibit_diagnosis: true
+    prohibit_invented_measurements: true

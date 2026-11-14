@@ -1,0 +1,112 @@
+
+# ============================================================
+# Python environments, caches, and build artifacts
+# ============================================================
+
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# ============================================================
+# Environment variables and secrets
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+# ============================================================
+# IDE and operating system files
+# ============================================================
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Logs and temporary simulation files
+# ============================================================
+
+*.log
+*.tmp
+*.bak
+_ik_marker_errors.sto
+
+# ============================================================
+# Raw video
+# Keep the demo video if redistribution is permitted
+# ============================================================
+
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/squat_segment.mp4
+
+# ============================================================
+# Models
+# Keep the actual models required for reproduction
+# ============================================================
+
+models/*
+!models/.gitkeep
+!models/opensim/
+!models/pose_landmarker/
+
+# OpenSim model
+models/opensim/*
+!models/opensim/.gitkeep
+!models/opensim/RajagopalLaiUhlrich2023.osim
+
+# MediaPipe pose model
+models/pose_landmarker/*
+!models/pose_landmarker/.gitkeep
+!models/pose_landmarker/pose_landmarker_full.task
+
+# ============================================================
+# Generated vector database
+# Rebuild from the source documents
+# ============================================================
+
+data/knowledge_base/index/
+data/knowledge_base/chroma_db/
+
+# ============================================================
+# Generated results
+# Preserve only the inputs needed for the quick demo
+# ============================================================
+
+results/*
+!results/.gitkeep
+!results/kinematic_reconstruction/
+!results/gravity_analysis/
+!results/movement_analysis/
+
+# Kinematic reconstruction inputs
+results/kinematic_reconstruction/*
+!results/kinematic_reconstruction/.gitkeep
+!results/kinematic_reconstruction/mapped_coordinates.csv
+!results/kinematic_reconstruction/ik_report.json
+
+# Gravity analysis input
+results/gravity_analysis/*
+!results/gravity_analysis/.gitkeep
+!results/gravity_analysis/gravity_analysis.json
+
+# Movement analysis input
+results/movement_analysis/*
+!results/movement_analysis/.gitkeep
+!results/movement_analysis/movement_analysis.json
+
+# Generated root-level assessment output
+/assessment_output.json

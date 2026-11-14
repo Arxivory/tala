@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tala-research"
+version = "0.1.0"
+description = "Computer-vision pose estimation and OpenSim kinematic reconstruction"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "PyYAML>=6.0",
+    "opencv-python>=4.9",
+    "mediapipe>=0.10",
+]
+
+[project.optional-dependencies]
+rag = [
+    "langchain>=0.2",
+    "langchain-community>=0.2",
+    "langchain-chroma>=0.1",
+    "chromadb>=0.5",
+    "ollama>=0.3",
+    "pypdf>=4.2",
+    "google-genai>=1.0",
+    "python-dotenv>=1.0",
+]
+biomechanics = [
+    "opensim>=4.6"
+]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"

@@ -1,0 +1,26 @@
+experiment:
+  name: phase3_3_pose_extraction
+  stage: phase3_3
+
+data:
+  input_video: data/raw/squat_segment.mp4
+  provenance: public_video_pilot
+  source: NASA Astronaut Jonny Kim Facebook Reel
+  original_segment_start_seconds: 47.0
+  original_segment_end_seconds: 57.0
+
+pose:
+  model: mediapipe_pose_landmarker
+  mode: VIDEO
+  num_poses: 1
+  min_pose_detection_confidence: 0.5
+  min_pose_presence_confidence: 0.5
+  min_tracking_confidence: 0.5
+  process_every_frame: true
+
+output:
+  directory: results/pose_estimation
+  save_landmarks_csv: true
+  save_metadata_json: true
+  save_report_json: true
+  save_annotated_video: true

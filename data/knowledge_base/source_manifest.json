@@ -1,0 +1,129 @@
+{
+  "documents": [
+    {
+      "filename": "NASA-STD-3001-Volume-1.pdf",
+      "source_id": "nasa_std_3001_v1",
+      "title": "NASA-STD-3001 Volume 1 - Crew Health",
+      "source_type": "technical_standard",
+      "domain": "crew_health",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "technical_requirement",
+      "revision": "Revision C",
+      "publication_date": "2023-09-15",
+      "topics": [
+        "muscle_strength",
+        "aerobic_capacity",
+        "fatigue",
+        "crew_health"
+      ],
+      "restrictions": [
+        "not_a_general_fitness_threshold",
+        "not_a_diagnostic_reference"
+      ]
+    },
+    {
+      "filename": "NASA-STD-3001-Volume-2.pdf",
+      "source_id": "nasa_std_3001_v2",
+      "title": "NASA-STD-3001 Volume 2 - Human Factors, Habitability, and Environmental Health",
+      "source_type": "technical_standard",
+      "domain": "human_factors",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "design_standard",
+      "revision": "Revision F",
+      "publication_date": "2026-07-14",
+      "topics": [
+        "physical_capabilities",
+        "range_of_motion",
+        "human_performance",
+        "exercise"
+      ],
+      "restrictions": [
+        "spacecraft_design_context",
+        "not_a_general_fitness_threshold"
+      ]
+    },
+    {
+      "filename": "OCHMO-HB-004.pdf",
+      "source_id": "nasa_ochmo_hb_004",
+      "title": "Anthropometry, Biomechanics, and Strength",
+      "source_type": "technical_handbook",
+      "domain": "biomechanics",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "technical_background",
+      "revision": "Revision A",
+      "topics": [
+        "anthropometry",
+        "biomechanics",
+        "range_of_motion",
+        "strength",
+        "gravity"
+      ],
+      "restrictions": [
+        "astronaut_population_context",
+        "not_a_clinical_reference"
+      ]
+    },
+    {
+      "filename": "OCHMO-TB-031.pdf",
+      "source_id": "nasa_ochmo_tb_031",
+      "title": "Exercise Overview",
+      "source_type": "technical_bulletin",
+      "domain": "exercise_physiology",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "research_background",
+      "topics": [
+        "exercise_countermeasures",
+        "altered_gravity",
+        "muscle_strength",
+        "aerobic_capacity"
+      ],
+      "restrictions": [
+        "spaceflight_context",
+        "does_not_validate_tala_energy_model"
+      ]
+    },
+    {
+      "filename": "HRP-Musculoskeletal-Fitness.pdf",
+      "source_id": "nasa_hrp_musculoskeletal_fitness",
+      "title": "Evidence Report: Reduced Cardiorespiratory and Musculoskeletal Fitness",
+      "source_type": "research_evidence_report",
+      "domain": "musculoskeletal_fitness",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "research_evidence",
+      "topics": [
+        "muscle_fitness",
+        "muscle_strength",
+        "cardiorespiratory_fitness"
+      ],
+      "restrictions": [
+        "spaceflight_evidence_context",
+        "not_a_diagnostic_reference"
+      ]
+    },
+    {
+      "filename": "HRP-Sleep-Circadian.pdf",
+      "source_id": "nasa_hrp_sleep_circadian",
+      "title": "Evidence Report: Sleep Loss, Circadian Desynchronization, and Work Overload",
+      "source_type": "research_evidence_report",
+      "domain": "sleep_and_fatigue",
+      "population": "astronauts",
+      "environment": "spaceflight",
+      "evidence_role": "research_evidence",
+      "topics": [
+        "sleep",
+        "fatigue",
+        "circadian_rhythm",
+        "human_performance"
+      ],
+      "restrictions": [
+        "spaceflight_evidence_context",
+        "not_a_diagnostic_reference"
+      ]
+    }
+  ]
+}
