@@ -1,4 +1,5 @@
 # TALA Backend
+
 ## An Exploratory Framework for Astronaut Exercise Movement Analysis
 
 TALA (Twin-based Astronaut Life Analytics) is an exploratory research framework integrating computer vision, OpenSim-based kinematic reconstruction, biomechanical and movement analysis, and NASA-literature-grounded retrieval-augmented generation (RAG).
@@ -74,14 +75,14 @@ The backend investigates the feasibility of:
 
 ### Component Responsibilities
 
-| Component | Responsibility |
-|---|---|
-| Pose Estimation | Extracts image-based body landmarks from exercise video. |
-| Kinematic Reconstruction | Uses visual targets and an OpenSim musculoskeletal model to estimate joint kinematics through inverse kinematics. |
-| Movement Analysis | Identifies movement phases and repetitions and summarizes movement characteristics. |
-| Gravity Analysis | Calculates COM-related gravitational potential energy for specified gravity constants. |
-| Assessment | Combines movement observations, reconstruction quality, gravity context, and available daily check-in information. |
-| NASA RAG | Retrieves relevant NASA literature and generates contextual explanations. |
+| Component                | Responsibility                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Pose Estimation          | Extracts image-based body landmarks from exercise video.                                                           |
+| Kinematic Reconstruction | Uses visual targets and an OpenSim musculoskeletal model to estimate joint kinematics through inverse kinematics.  |
+| Movement Analysis        | Identifies movement phases and repetitions and summarizes movement characteristics.                                |
+| Gravity Analysis         | Calculates COM-related gravitational potential energy for specified gravity constants.                             |
+| Assessment               | Combines movement observations, reconstruction quality, gravity context, and available daily check-in information. |
+| NASA RAG                 | Retrieves relevant NASA literature and generates contextual explanations.                                          |
 
 The RAG component provides supporting literature context. It does not modify numerical calculations or independently determine assessment flags.
 
@@ -236,11 +237,11 @@ The Ollama service must be available during knowledge-base construction and retr
 
 ### Model and Service Responsibilities
 
-| Model / Service | Responsibility |
-|---|---|
+| Model / Service                     | Responsibility                                                    |
+| ----------------------------------- | ----------------------------------------------------------------- |
 | Qwen3 Embedding 0.6B through Ollama | Converts NASA document chunks and queries into vector embeddings. |
-| ChromaDB | Stores and retrieves embedded document chunks. |
-| Google Gemini | Generates contextual answers using retrieved evidence. |
+| ChromaDB                            | Stores and retrieves embedded document chunks.                    |
+| Google Gemini                       | Generates contextual answers using retrieved evidence.            |
 
 Embedding and language generation are separate operations. Ollama handles embedding generation, while Gemini handles natural-language generation.
 
@@ -301,27 +302,27 @@ The script processes the configured source documents, extracts their text, divid
 
 ### Embedding and Retrieval Configuration
 
-| Setting | Value |
-|---|---|
-| Embedding model | `qwen3-embedding:0.6b` |
-| Embedding provider | Ollama |
-| Embedding dimensions | 1024 |
-| Vector database | ChromaDB |
-| Collection | `tala_nasa_knowledge` |
-| Similarity metric | Cosine distance |
+| Setting              | Value                  |
+| -------------------- | ---------------------- |
+| Embedding model      | `qwen3-embedding:0.6b` |
+| Embedding provider   | Ollama                 |
+| Embedding dimensions | 1024                   |
+| Vector database      | ChromaDB               |
+| Collection           | `tala_nasa_knowledge`  |
+| Similarity metric    | Cosine distance        |
 
 The ingestion workflow uses page-aware extraction, paragraph-based chunking, and source metadata to preserve document identity and page references.
 
 ### Recorded Knowledge-Base Ingestion Results
 
-| Metric | Result |
-|---|---:|
-| Source PDFs | 6 |
-| Pages processed | 839 |
-| Chunks created | 1,341 |
-| Empty pages | 0 |
-| Processing failures | 0 |
-| Processing warnings | 0 |
+| Metric              | Result |
+| ------------------- | -----: |
+| Source PDFs         |      6 |
+| Pages processed     |    839 |
+| Chunks created      |  1,341 |
+| Empty pages         |      0 |
+| Processing failures |      0 |
+| Processing warnings |      0 |
 
 The generated vector database is stored at:
 
@@ -481,15 +482,15 @@ Baseline availability therefore depends on the available compatible session hist
 
 ## 11. Output Structure
 
-| Directory | Contents |
-|---|---|
-| `results/pose_estimation/` | Extracted landmarks, video metadata, extraction report, and pose visualization. |
-| `results/kinematic_reconstruction/` | OpenSim motion, mapped coordinates, marker-fitting diagnostics, and IK report. |
-| `results/gravity_analysis/` | Gravity-analysis report and energy time series. |
-| `results/movement_analysis/` | Movement-analysis report and phase segmentation. |
-| `results/assessment/` | Assessment output. |
-| `results/baselines/` | Local historical session information. |
-| `results/` | Unified TALA output. |
+| Directory                           | Contents                                                                        |
+| ----------------------------------- | ------------------------------------------------------------------------------- |
+| `results/pose_estimation/`          | Extracted landmarks, video metadata, extraction report, and pose visualization. |
+| `results/kinematic_reconstruction/` | OpenSim motion, mapped coordinates, marker-fitting diagnostics, and IK report.  |
+| `results/gravity_analysis/`         | Gravity-analysis report and energy time series.                                 |
+| `results/movement_analysis/`        | Movement-analysis report and phase segmentation.                                |
+| `results/assessment/`               | Assessment output.                                                              |
+| `results/baselines/`                | Local historical session information.                                           |
+| `results/`                          | Unified TALA output.                                                            |
 
 The primary integrated output is:
 
@@ -519,13 +520,13 @@ This result represents the test suite and implementation state at the time of ex
 
 ### Diagnostic Scripts
 
-| Script | Purpose |
-|---|---|
-| `test_gemini_connection.py` | Checks Gemini API configuration and connectivity. |
-| `test_rag_retrieval.py` | Checks retrieval from the local NASA knowledge base. |
-| `test_rag_generation.py` | Checks evidence-grounded answer generation. |
-| `examine_movement.py` | Inspects movement-analysis results. |
-| `run_assessment_example.py` | Executes the assessment module independently. |
+| Script                      | Purpose                                              |
+| --------------------------- | ---------------------------------------------------- |
+| `test_gemini_connection.py` | Checks Gemini API configuration and connectivity.    |
+| `test_rag_retrieval.py`     | Checks retrieval from the local NASA knowledge base. |
+| `test_rag_generation.py`    | Checks evidence-grounded answer generation.          |
+| `examine_movement.py`       | Inspects movement-analysis results.                  |
+| `run_assessment_example.py` | Executes the assessment module independently.        |
 
 These scripts support component-level inspection and testing.
 
@@ -537,26 +538,26 @@ The repository separates source code, required source assets, generated database
 
 ### Recommended Version-Control Policy
 
-| File or Directory | Treatment |
-|---|---|
-| `src/tala/` | Version-controlled source code. |
-| `scripts/` | Version-controlled scripts. |
-| `configs/` | Version-controlled configuration files. |
-| `tests/` | Version-controlled automated tests. |
-| `docs/` | Version-controlled documentation. |
-| `pyproject.toml` | Version-controlled project configuration. |
-| `requirements.txt` | Version-controlled dependency list, if maintained consistently. |
-| `README.md` | Version-controlled documentation. |
-| `.env.example` | Version-controlled configuration template. |
-| `.env` | Excluded; contains private credentials. |
-| `.venv/` | Excluded; local Python environment. |
-| `data/knowledge_base/raw/` | Include subject to source-document redistribution permissions. |
-| `data/knowledge_base/chroma_db/` | Generated locally from source documents. |
-| `models/` | Include or provide documented downloads, subject to licensing. |
-| `data/raw/squat_segment.mp4` | Include only if redistribution is permitted. |
-| `results/baselines/session_history.jsonl` | Excluded; local session history. |
-| `results/tala_output.json` | Generated output. |
-| Other generated `results/` files | Excluded unless selected as demonstration fixtures. |
+| File or Directory                         | Treatment                                                       |
+| ----------------------------------------- | --------------------------------------------------------------- |
+| `src/tala/`                               | Version-controlled source code.                                 |
+| `scripts/`                                | Version-controlled scripts.                                     |
+| `configs/`                                | Version-controlled configuration files.                         |
+| `tests/`                                  | Version-controlled automated tests.                             |
+| `docs/`                                   | Version-controlled documentation.                               |
+| `pyproject.toml`                          | Version-controlled project configuration.                       |
+| `requirements.txt`                        | Version-controlled dependency list, if maintained consistently. |
+| `README.md`                               | Version-controlled documentation.                               |
+| `.env.example`                            | Version-controlled configuration template.                      |
+| `.env`                                    | Excluded; contains private credentials.                         |
+| `.venv/`                                  | Excluded; local Python environment.                             |
+| `data/knowledge_base/raw/`                | Include subject to source-document redistribution permissions.  |
+| `data/knowledge_base/chroma_db/`          | Generated locally from source documents.                        |
+| `models/`                                 | Include or provide documented downloads, subject to licensing.  |
+| `data/raw/squat_segment.mp4`              | Include only if redistribution is permitted.                    |
+| `results/baselines/session_history.jsonl` | Excluded; local session history.                                |
+| `results/tala_output.json`                | Generated output.                                               |
+| Other generated `results/` files          | Excluded unless selected as demonstration fixtures.             |
 
 ### Demonstration Artifacts
 
@@ -653,17 +654,3 @@ TALA demonstrates an integrated exploratory workflow connecting markerless pose 
 The implementation investigates the feasibility of connecting these components into a reproducible backend research pipeline. It does not establish clinical validity, quantify astronaut physiological adaptation, or replace calibrated biomechanical measurement systems.
 
 The framework demonstrates how exercise-motion observations and relevant spaceflight literature can be brought together in a structured analytical workflow while preserving the distinction between visual estimates, model-derived quantities, and literature-based contextual explanations.
-
----
-
-## 17. Documentation and References
-
-Additional implementation and methodological documentation is available in the repository:
-
-- `docs/architecture.md` — System architecture and component relationships.
-- `docs/methodology.md` — Processing methodology and analytical procedures.
-- `docs/limitations.md` — Technical and scientific limitations.
-- `docs/rag_methodology.md` — NASA document ingestion, embedding, retrieval, and generation methodology.
-- `data/knowledge_base/source_manifest.json` — Knowledge-base source documentation.
-
-The accompanying TALA research paper provides the broader research context, methodology, experimental observations, and interpretation of results.
